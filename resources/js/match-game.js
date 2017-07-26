@@ -29,14 +29,16 @@ while (cardArray.length > 0){
 */
 
 MatchGame.renderCards = function(cardValues, $game) {
-	$(game).empty();
-	var $qArray = [];
-	cardValues = MatchGame.generateCardValues();
+	$game.empty();
+	var colorArray = ['hsl(25,85%,65%)', 'hsl(55,85%,65%)', 'hsl(90,85%,65%)', 'hsl(160,85%,65%)', 'hsl(220,85%,65%)', 'hsl(265,85%,65%)', 'hsl(310,85%,65%)', 'hsl(360,85%,65%)']
 	for (var i = 0; i >= 15; i++) {
-		var $('card').data(i:'<div class="col-xs-3 card">' + cardValues[i] + '</div>');
-		$('game').append($card);
+		var $card = $('<div class="col-xs-3 card"></div>');
+		var value = cardValues[valueIndex];
+		$card.data(data, value);
+		$card.data('flipped', false);
+		$card.data('color', colorArray[value]);
+		$game.append($card);
 	}
-	return $('game');
 };
 
 /*
